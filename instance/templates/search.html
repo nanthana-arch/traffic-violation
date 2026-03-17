@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search Vehicle</title>
+</head>
+
+<body>
+
+    <h2>Search Vehicle Violations</h2>
+
+    <form method="POST">
+
+        Vehicle Number:
+        <input type="text" name="vehicle">
+
+        <button type="submit">Search</button>
+
+    </form>
+
+    <br>
+
+    {% if records %}
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>ID</th>
+            <th>Violation</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th>Fine</th>
+            <th>Status</th>
+        </tr>
+
+        {% for r in records %}
+
+        <tr>
+            <td>{{ r.id }}</td>
+            <td>{{ r.violation_type }}</td>
+            <td>{{ r.location }}</td>
+            <td>{{ r.date }}</td>
+            <td>{{ r.fine }}</td>
+            <td>{{ r.status }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/">Back</a>
+
+</body>
+
+</html>
